@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary: #3b82f6; /* Blue 500 */
+  --color-primary-hover: #2563eb; /* Blue 600 */
+  --color-background-light: #ffffff;
+  --color-background-dark: #020617; /* Slate 950 */
+}
+
+@layer base {
+  body {
+    @apply bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans antialiased transition-colors duration-300;
+  }
+}
+
+/* Custom styles for premium look */
+.glass {
+  @apply bg-white/70 dark:bg-slate-900/70 backdrop-blur-md border border-white/20 dark:border-slate-800/50 shadow-lg;
+}
+
+.card-hover {
+  @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+}
+
+/* Standard Button Classes */
+.btn-primary {
+  @apply bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-semibold transition shadow-lg shadow-blue-500/30 flex items-center justify-center;
+}
+
+.btn-secondary {
+  @apply bg-white hover:bg-slate-50 text-slate-900 border border-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-white dark:border-slate-700 px-6 py-3 rounded-full font-semibold transition shadow-sm flex items-center justify-center;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 dark:bg-slate-700 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-400 dark:bg-slate-600;
+}
